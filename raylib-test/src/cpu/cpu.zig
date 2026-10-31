@@ -1,18 +1,27 @@
+pub const Register = extern union {
+    value: u16,
+    bytes: extern struct {
+        low: u8,
+        high: u8,
+    },
+};
 
 
 pub const Cpu = struct {
+    pub const Registers = struct {
+        AX: Register = .{ .value = 0 },
+        BX: Register = .{ .value = 0 },
+        CX: Register = .{ .value = 0 },
+        DX: Register = .{ .value = 0 },
+    };
 
-}
-pub const Cpu = struct {
-    ax: u16 : 0,
-    al: u16 : 0,
-    ah: u16 : 0,
-    bx: u16 : 0,
-    cx: u16 : 0,
-    cl: u16 : 0,
-    dx: u16 : 0,
-    sp: u16 : 0,
-    sl: u16 : 0,
-    dl: u16 : 0,
+
+    // TODO(soon)
+    fn Step() void {
+    }
+    fn interrupt_handler() void {
+    }
+
+
 
 }
